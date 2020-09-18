@@ -1,9 +1,11 @@
 import unittest
 from queue import Queue
 
+
 class QueueTests(unittest.TestCase):
     def setUp(self):
         self.q = Queue()
+        print("hello:", self.q)
 
     def test_len_returns_0_for_empty_queue(self):
         self.assertEqual(len(self.q), 0)
@@ -40,8 +42,8 @@ class QueueTests(unittest.TestCase):
         self.assertIsNone(self.q.dequeue())
         self.assertEqual(len(self.q), 0)
 
+        print(self.q.dequeue())
+
+
 if __name__ == '__main__':
     unittest.main()
-
-
-        
