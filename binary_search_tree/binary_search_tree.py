@@ -25,7 +25,7 @@ class BSTNode:
             # we need to go left
             # if we see that there is no left child, then we can wrap the
             # value i a BSTNode and park it
-            if self.right is None:
+            if self.left is None:
                 # otherwise there is a child
                 self.left = BSTNode(value)
             else:
@@ -47,15 +47,30 @@ class BSTNode:
     # False if it does not
 
     def contains(self, target):
-        pass
+        if target < self.value:
+            if self.left is None:
+                return False
+            return self.left.contains(target)
+        elif target > self.value:
+            if self.right is None:
+                return False
+            return self.right.contains(target)
+        else:
+            return self.value
 
-    # Return the maximum value found in the tree
     def get_max(self):
+
         pass
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        fn(self.value)
+        if self.left is None and self.right is None:
+            return
+        if self.left:
+            self.left.for_each(fn)
+        if self.right:
+            self.right.for_each(fn)
 
     # Part 2 -----------------------
 
