@@ -59,10 +59,17 @@ class BSTNode:
             return self.value
 
     def get_max(self):
+        current = self
 
-        pass
+        while(current.right):
+            if current is None:
+                return
+            current = current.right
 
-    # Call the function `fn` on the value of each node
+        return current.value
+
+        # Call the function `fn` on the value of each node
+
     def for_each(self, fn):
         fn(self.value)
         if self.left is None and self.right is None:
